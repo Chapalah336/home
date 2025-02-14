@@ -6,7 +6,7 @@ competitions = [
 results = [0, 0, 1]
 
 function WhoIstournamentWinner(comp) {
-    var hashMap = {};
+    var hashMap = new Map();
     var tounrnWin = "";
     var winner ="";
     var currentPoints = 0
@@ -14,18 +14,18 @@ function WhoIstournamentWinner(comp) {
         var [homeTeam, awayTeam] = comp[i];
         if (results[i] === 0) {
             winner = awayTeam;
+            hashMap.set(winner, (hashMap.get(winner) || 0) + 3);
         } 
         else {
             winner = homeTeam;
+            hashMap.set(winner, (hashMap.get(winner) || 0) + 3);
         }
-        if (!hashMap[winner]) {
-            hashMap[winner] = 0
-        }
-        hashMap[winner] += 3;
-       if (hashMap[winner] > currentPoints) {
-        currentPoints = hashMap[winner];
-        tounrnWin = winner;
-      }
+        console.log(hashMap)
+       var Points = hashMap.get(winner);
+    //    if (Points > currentPoints) {
+    //     currentPoints = Points;
+    //     tounrnWin = winner;
+    //   }
     }
     return tounrnWin;
 } 
