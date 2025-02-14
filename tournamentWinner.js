@@ -22,10 +22,10 @@ function WhoIstournamentWinner(comp) {
         }
         console.log(hashMap)
        var Points = hashMap.get(winner);
-    //    if (Points > currentPoints) {
-    //     currentPoints = Points;
-    //     tounrnWin = winner;
-    //   }
+       if (Points > currentPoints) {
+        currentPoints = Points;
+        tounrnWin = winner;
+      }
     }
     return tounrnWin;
 } 
